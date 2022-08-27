@@ -13,11 +13,11 @@ Write a function called createAccount which creates a bank account given a PIN n
 
  */
 
-function createAccount(pin, amount) {
+function createAccount(pin, amount = 0) {
 	return {
 		checkBalance(inputPin) {
 			if (inputPin !== pin) return 'Invalid PIN.';
-			return `$${amount};`;
+			return `$${amount}`;
 		},
 		deposit(inputPin, depositAmt) {
 			if (inputPin !== pin) return 'Invalid PIN.';
@@ -27,9 +27,9 @@ function createAccount(pin, amount) {
 		withdraw(inputPin, withdrawalAmt) {
 			if (inputPin !== pin) return 'Invalid PIN.';
 			if (withdrawalAmt > amount)
-				return 'Withdrawal amount exceeds account balance. Transaction canceled.';
+				return 'Withdrawal amount exceeds account balance. Transaction cancelled.';
 			amount -= withdrawalAmt;
-			return `Successfilly withdrew $${withdrawalAmt}. Current balance: $${amount}.`;
+			return `Successfully withdrew $${withdrawalAmt}. Current balance: $${amount}.`;
 		},
 		changePin(oldPin, newPin) {
 			if (oldPin !== pin) return 'Invalid PIN.';

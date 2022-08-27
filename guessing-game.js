@@ -17,10 +17,11 @@ function guessingGame() {
 	let numGuesses = 0;
 
 	return function guess(num) {
-		if (isOver) return 'The game is over. You already won!';
+		if (isOver) return 'The game is over, you already won!';
 		numGuesses++;
 		// increment number of guesses immediately every time this function is run
 		if (num === answer) {
+			isOver = true;
 			//  guess variable will be utilized for return statement
 			// singular or plural depending on number of guesses
 			const guess = numGuesses === 1 ? 'guess' : 'guesses';
